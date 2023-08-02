@@ -3,9 +3,19 @@ POST http://localhost:3000/auth/signup
 content-Type: application/json
 
 {
-  "email": "testf@gmail.com",
+  "email": "testf30@gmail.com",
   "password": "password"
 }
+
+### Signin user
+POST http://localhost:3000/auth/signin
+content-Type: application/json
+
+{
+  "email": "testf304@gmail.com",
+  "password": "password"
+}
+
 
 ### Get the user with ID
 GET http://localhost:3000/auth/user/5
