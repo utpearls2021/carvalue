@@ -9,7 +9,6 @@ export class UsersService {
 
   create(email: any, password: any) {
     const user = this.repo.create({ email: email, password: password });
-
     return this.repo.save(user);
   }
 

@@ -17,17 +17,17 @@ export class AuthService {
       if (result.data.length) {
         result.ex = "Given email is already registered";
         result.success = false;
+      } else {
+        // Hash the password
+        // Generate salt
+        const salt = randomBytes(8).toString("hex");
+        // Hash salt and password together
+        const hash = (await scrypt(password, salt, 32) as Buffer);
+        // join hash result and join togather password
+        const hashPassword = salt + "." + hash.toString("hex");
+        // create new user and save
+        result.data = await this.userService.create(email, hashPassword);
       }
-
-      // Hash the password
-      // Generate salt
-      const salt = randomBytes(8).toString("hex");
-      // Hash salt and password together
-      const hash = (await scrypt(password, salt, 32) as Buffer);
-      // join hash result and join togather password
-      const hashPassword = salt + "." + hash.toString("hex");
-      // create new user and save
-      result.data = await this.userService.create(email, hashPassword);
     } catch (ex) {
       result.ex = "Sign up failed";
       result.success = false;
