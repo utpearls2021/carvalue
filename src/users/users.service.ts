@@ -14,7 +14,7 @@ export class UsersService {
   }
 
   findOne(id: any) {
-    return this.repo.findOne({ where: id });
+    return this.repo.findOneBy({ id: id });
   }
 
   find(query: any) {

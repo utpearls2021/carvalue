@@ -1,9 +1,9 @@
 ### Signup user
-POST http://localhost:3000/auth/signup
+POST http://localhost:3050/auth/signup
 content-Type: application/json
 
 {
-  "email": "testf30@gmail.com",
+  "email": "testf40@gmail.com",
   "password": "password"
 }
 
@@ -12,13 +12,27 @@ POST http://localhost:3000/auth/signin
 content-Type: application/json
 
 {
-  "email": "testf304@gmail.com",
+  "email": "testf30@gmail.com",
   "password": "password"
 }
 
+### Who a m i
+GET http://localhost:3000/auth/whoami
+
+
+### signout  the user
+POST http://localhost:3000/auth/signout
+
+### Set color by param
+GET http://localhost:3050/auth/colors/red
+
+### Set color by param
+GET http://localhost:3050/auth/colors
+
+
 
 ### Get the user with ID
-GET http://localhost:3000/auth/user/5
+GET http://localhost:3000/auth/user/9
 
 ### Get user with email
 GET http://localhost:3000/auth/user?email=4emailupdate@gmail.com

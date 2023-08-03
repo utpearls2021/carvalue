@@ -37,12 +37,12 @@ export class AuthService {
   }
 
   async signin(email: string, password: string) {
-    let result = { success: true, data: null , ex: null};
+    let result: any = { success: true, data: null , ex: null };
 
     try {
       const [user] = await this.userService.find({ email: email });
 
-      if(user) {
+      if (user) {
         const [ salt, storedHash ] = user.password.split(".");
         const hash = (await scrypt(password, salt, 32)) as Buffer;
 
@@ -60,9 +60,9 @@ export class AuthService {
     } catch(ex) {
       result.ex = "Signin failed";
       result.success = false;
+      result.tx = "er";
     }
 
-    console.log("result",result);
     return result;
   }
 }
