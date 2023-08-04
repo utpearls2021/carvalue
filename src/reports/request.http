@@ -22,3 +22,6 @@ Content-Type: application/json
 {
 
 }
+
+### get the reports
+GET http://localhost:3000/reports?make=hundai&modal=corolla&year=2016
